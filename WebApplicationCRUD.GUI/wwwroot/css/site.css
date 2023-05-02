@@ -1,0 +1,32 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.book-img{
+    height : 15em;
+    width : 15em;
+    justify-content : center;
+    object-fit : cover;
+    margin : 1em;
+}
+
+.btn{
+    margin-top : 0.5em;
+    margin-bottom : 0.5em;
+    margin-right : 0.5em;
+}

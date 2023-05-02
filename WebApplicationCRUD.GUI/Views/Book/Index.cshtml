@@ -1,0 +1,52 @@
+﻿@using WebApplicationCRUD.IL.Sessions
+@inject SessionManager _session
+@model IEnumerable<WebApplicationCRUD.Models.Entities.Book>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Add" class="btn btn-primary btn-lg">Ajouter un livre</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Titre
+            </th>
+            <th>
+                Auteur
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@item.Id" class="btn btn-primary">Detail</a>
+                    @if (_session.CurrentUser is not null)
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Editer</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary">Supprimer</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
